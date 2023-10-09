@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Botão Redondo e Quadrado no Centro</title>
+    <link rel="icon" href="bola.png" type="image/x-icon">
+    <style>
+        /* Estilo para centralizar o botão e adicionar a borda */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Isso centraliza verticalmente */
+            margin: 0;
+        }
+
+        /* Estilo para o botão */
+        .botao {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid black; /* Adiciona uma borda circular preta */
+            position: absolute; /* Permite posicionar o botão */
+            transition: 0.5s ease; /* Efeito de transição suave */
+            z-index: 2; /* Coloca o botão acima do quadrado */
+        }
+
+        /* Estilo para o quadrado */
+        .quadrado {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: absolute; /* Permite posicionar o quadrado */
+            top: calc(50% - 75px); /* Centralizar verticalmente */
+            left: calc(50% - 75px); /* Centralizar horizontalmente */
+            z-index: 1; /* Coloca o quadrado abaixo do botão */
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão redondo sem texto com evento de clique -->
+    <div class="botao" id="meuBotao"></div>
+
+    <!-- Quadrado no centro -->
+    <div class="quadrado"></div>
+
+    <script>
+        const botao = document.getElementById('meuBotao');
+
+        function moverBotao() {
+            const novaPosicaoX = Math.random() * (window.innerWidth - 100);
+            const novaPosicaoY = Math.random() * (window.innerHeight - 100);
+
+            botao.style.left = novaPosicaoX + 'px';
+            botao.style.top = novaPosicaoY + 'px';
+        }
+
+        botao.addEventListener('click', moverBotao);
+    </script>
+</body>
+</html>
